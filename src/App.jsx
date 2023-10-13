@@ -75,10 +75,18 @@ function App() {
       {!gameStart && (
         <div className="welcome-section">
           <main className="welcome-page">
+            <div className="vector-icon-container">
+              <img
+                className="vector-icon"
+                src="../public/images/thinking.svg"
+                alt="vector image"
+              />
+            </div>
+
             <div className="logo">
               <h1 className="heading">Trivee</h1>
               <div className="logo-icon">
-                <img src="./src/images/lightbulb.png" alt="bulb icon" />
+                <img src="../public/images/lightbulb.png" alt="bulb icon" />
               </div>
             </div>
 
