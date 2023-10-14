@@ -78,7 +78,7 @@ function App() {
             <div className="vector-icon-container">
               <img
                 className="vector-icon"
-                src="../public/images/thinking.svg"
+                src="./images/thinking.svg"
                 alt="vector image"
               />
             </div>
@@ -86,7 +86,7 @@ function App() {
             <div className="logo">
               <h1 className="heading">Trivee</h1>
               <div className="logo-icon">
-                <img src="../public/images/lightbulb.png" alt="bulb icon" />
+                <img src="./images/lightbulb.png" alt="bulb icon" />
               </div>
             </div>
 
