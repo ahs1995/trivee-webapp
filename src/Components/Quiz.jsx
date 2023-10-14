@@ -13,7 +13,9 @@ export default function Quiz(props) {
   const [triviaData, setTriviaData] = useState(0);
   const [showResult, setShowResult] = useState(false);
 
-  const { innerWidth, innerHeight } = useWindowSize();
+  const [confettiHeight, setConfettiHeight] = useState(0);
+
+  const { innerWidth } = useWindowSize();
 
   function onGameStart() {
     props.onGameStart();
@@ -41,6 +43,19 @@ export default function Quiz(props) {
         setQuestions(resultArray);
       });
   }, [reset]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setConfettiHeight(scrollY + innerHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [innerHeight]);
 
   if (questions.length === 0) {
     return <Loading />;
@@ -126,7 +141,7 @@ export default function Quiz(props) {
   return (
     <main>
       {showResult && triviaData === 5 && (
-        <Confetti width={innerWidth} height={innerHeight} />
+        <Confetti width={innerWidth} height={confettiHeight} />
       )}
       <section className="quiz-main">
         <h2 onClick={onGameStart} className="quiz-heading">
